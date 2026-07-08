@@ -4,14 +4,14 @@ library(ggplot2)
 #Using R ggplot2 and lpsolve to plot feasible solution and find the solutions
 #by Martina Bleta
 
-f.obj <- c(300, 200)
+f.obj <- c(300, 200) #objective function
 f.con <- matrix(c(6, 4,
                   8, 4,
                   3, 3),
-                nrow = 3, byrow = TRUE)
+                nrow = 3, byrow = TRUE) #the matrix used in the problem from the book
 
-f.dir <- c("<=", "<=", "<=")
-f.rhs <- c(35, 40, 25) 
+f.dir <- c("<=", "<=", "<=") #constraints signs
+f.rhs <- c(35, 40, 25) #availability 
 solution <- lp("max", f.obj, f.con, f.dir, f.rhs)
 
 results <- data.frame(
